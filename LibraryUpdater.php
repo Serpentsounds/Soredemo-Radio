@@ -4,7 +4,7 @@
  * User: Benjamin
  * Date: 02/12/2015
  */
-
+//	test
 //	Grab metadata fields from command line argument and form them into foobar2000 titleformat string, column names string and value placeholder string for mysql
 $fields = explode("|", $argv[1]);
 $titleFormat = "%". implode("%|%", $fields). "%";

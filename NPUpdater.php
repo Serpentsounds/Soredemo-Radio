@@ -1,5 +1,5 @@
 <?php
-
+//test
 set_time_limit(0);
 mb_internal_encoding("UTF-8");
 
@@ -277,20 +277,21 @@ function getArtName(string $path): string {
  */
 function copyArt(string $file): bool {
 	$destination = getcwd(). "\\art\\". basename($file);
+	$return = false;
 
 	echo "Copying album art...";
 	try {
 		$com = new COM("Scripting.FileSystemObject", null, CP_UTF8);
 		$com->CopyFile($file, $destination);
-		$com = null;
-		return true;
+		$return = true;
 	}
 	//	COM error
 	catch (Exception $e) {
 		echo "Unable to copy art '$file' to '$destination': ". $e->getMessage(). "\n";
 	}
 
-	return false;
+	$com = null;
+	return $return;
 }
 
 /**
